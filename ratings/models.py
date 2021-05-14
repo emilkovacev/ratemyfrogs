@@ -2,9 +2,10 @@ from django.db import models
 
 class Frog(models.Model):
     frog = models.URLField(max_length=1000)
-    
+    name = models.CharField(max_length=200)
+
     def __str__(self):
-        return str(self.frog)
+        return str(self.name)
 
 class User(models.Model):
     userid = models.CharField(max_length=1000)

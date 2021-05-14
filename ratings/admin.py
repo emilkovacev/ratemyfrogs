@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Frog, User, FrogRating
 
-# Register your models here.
+admin.site.register(Frog)
+admin.site.register(User)
+admin.site.register(FrogRating)
+
