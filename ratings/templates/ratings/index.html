@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
     <head>
         {% load static %}
         <link rel="stylesheet" href="{% static 'ratings/rmf.css' %}">
@@ -8,7 +6,7 @@
     <body>
         <h1 id="title">Rate My Frogs</h1>
         <div id="frogimg">
-            <img id="image" src="https://static.scientificamerican.com/sciam/cache/file/41DF7DA0-EE58-4259-AA815A390FB37C55_source.jpg">
+		<img id="image" src={{ frog }}>
         </div>
 
         <div id="ratings">
