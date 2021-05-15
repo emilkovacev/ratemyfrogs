@@ -1,7 +1,9 @@
 from django.contrib import admin
-from .models import Frog, User, FrogRating
+from .models import Frog, User
 
 admin.site.register(Frog)
 admin.site.register(User)
-admin.site.register(FrogRating)
+
+if __name__ == '__main__':
+    load_frogs()
 
