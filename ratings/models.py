@@ -1,7 +1,7 @@
 from django.db import models
 
 class Frog(models.Model):
-    species = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
     url = models.URLField(max_length=1000)
     total = models.PositiveIntegerField(default=0)
     n = models.PositiveIntegerField(default=0)
@@ -13,7 +13,7 @@ class Frog(models.Model):
         return 0
 
     def __str__(self):
-        return str(self.name)
+        return str(self.title)
 
 
 class User(models.Model):
