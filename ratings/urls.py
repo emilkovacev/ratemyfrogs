@@ -3,6 +3,6 @@ from . import views
 
 app_name = 'ratings'
 urlpatterns = [
-            path('', views.index, name='index')
-            ]
+    path('', views.index, name='index')
+]
 

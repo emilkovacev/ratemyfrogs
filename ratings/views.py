@@ -23,5 +23,7 @@ def index(request):
             print('form recieved')
         return HttpResponseRedirect('/')
     allfrogs = Frog.objects.all()
-    print(allfrogs[0].frog)
-    return render(request, 'ratings/index.html', {'frog': allfrogs[0].frog})
+    if allfrogs:
+        return render(request, 'ratings/index.html', {'frog': allfrogs[0].url})
+    else:
+        return render(request, 'ratings/index.html', {'frog': ''})
