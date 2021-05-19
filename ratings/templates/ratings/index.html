@@ -10,11 +10,16 @@
         </div>
 
         <div id="ratings">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
+		<form action="/" method="post">
+			{% csrf_token %}
+			{{ form_ratefrog }}
+			<input type="hidden" name="url" value={{ frog }}>
+			<input type="submit" name="1" value="1"/>
+			<input type="submit" name="2" value="2"/>
+			<input type="submit" name="3" value="3"/>
+			<input type="submit" name="4" value="4"/>
+			<input type="submit" name="5" value="5"/>
+		</form>
         </div>
 
     </body>
