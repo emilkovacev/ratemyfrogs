@@ -40,12 +40,14 @@ class Command(BaseCommand):
 
         frogs = get_frogs(page_number, page_size)
         i = 0
-
         for f in frogs['results']:
             exists = Frog.objects.filter(title=f['title'], url=f['url']).exists()
             if not force and exists:
                 raise RePopulationError(f"Page {kwargs['page_number']} is already populated")
-            elif not exists:
+
+        for f in frogs['results']:
+            exists = Frog.objects.filter(title=f['title'], url=f['url']).exists()
+            if not exists:
                 i += 1
                 frog = Frog(title=f['title'], url=f['url'])
                 frog.save()
