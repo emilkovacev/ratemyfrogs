@@ -4,21 +4,6 @@ body {
     background-color: rgb(228, 228, 228);
 }
 
-.dark-mode {
-  background-color: rgb(50, 50, 50);
-  color: white;
-}
-
-button {
-    border: none;
-    padding: 10px;
-    margin: 10px;
-}
-
-button:hover {
-    cursor: pointer;
-}
-
 h1 {
     color: rgb(134, 190, 2);
     font-size: 50px;
@@ -43,12 +28,6 @@ h1 {
     box-shadow: 10px 10px;
 }
 
-#frogimg button {
-    padding: 30px 10px;
-    margin: 20px;
-    border: none;
-}
-
 #ratings {
     display: flex;
     justify-content: center;
@@ -58,7 +37,7 @@ h1 {
     text-align: center;
 }
 
-#ratings button {
+#submit {
     background-color: orange;
     padding: 0;
     border: none;
@@ -69,77 +48,6 @@ h1 {
 
     border-radius: 3px;
     font-weight: bold;
-}
-
-#newfrog {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* switch css */
-/* Toggle Switch code used from https://www.w3schools.com/howto/howto_css_switch.asp */
-
-/* The switch - the box around the slider */
-.switch {
-    position: absolute;
-    right: 0;
-    top: 0;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    margin: 20px;
-
-    outline: 2px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgb(206, 206, 206);
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 22px;
-    width: 22px;
-    left: 6px;
-    bottom: 6px;
-    background-color: rgb(134, 190, 2);
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: rgb(32, 32, 32);
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
+}
+
