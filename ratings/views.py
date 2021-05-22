@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+import random
 from .models import Frog
 from .forms import RatingForm
 
@@ -18,10 +19,20 @@ def index(request):
             rating = 5
         form = RatingForm(request.POST)
         if form.is_valid():
-            id = form.cleaned_data['id']
             url = form.cleaned_data['url']
-            Frog.objects.filter(id=id)
-            old_frog
+            request.session[url] = True
+            print('form recieved')
         return HttpResponseRedirect('/')
+    
     allfrogs = Frog.objects.all()
-    return render(request, 'ratings/index.html', {'id': allfrogs[0].id, 'url': allfrogs[0].url})
+    unratedfrogs = []
+    for frog in allfrogs:
+        if str(frog.url) not in request.session:
+            request.session[str(frog.url)] = False
+        if request.session[str(frog.url)] == False:
+            unratedfrogs.append(frog)
+    thisfrog = unratedfrogs[random.randint(0, len(unratedfrogs)-1)]
+    if allfrogs:
+        return render(request, 'ratings/index.html', {'frog': thisfrog.url})
+    else:
+        return render(request, 'ratings/index.html', {'frog': ''})
