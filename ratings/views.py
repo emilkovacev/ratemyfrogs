@@ -18,6 +18,7 @@ def index(request):
         elif '5' in request.POST:
             rating = 5
         form = RatingForm(request.POST)
+        print(rating)
         if form.is_valid():
             url = form.cleaned_data['url']
             request.session[url] = True
@@ -31,8 +32,8 @@ def index(request):
             request.session[str(frog.url)] = False
         if request.session[str(frog.url)] == False:
             unratedfrogs.append(frog)
-    thisfrog = unratedfrogs[random.randint(0, len(unratedfrogs)-1)]
-    if allfrogs:
-        return render(request, 'ratings/index.html', {'frog': thisfrog.url})
+    if unratedfrogs:
+        thisfrog = unratedfrogs[random.randint(0, len(unratedfrogs)-1)]
+        return render(request, 'ratings/index.html', {'url': thisfrog.url, 'frogstring': ''})
     else:
-        return render(request, 'ratings/index.html', {'frog': ''})
+        return render(request, 'ratings/index.html', {'url': '', 'frogstring': "You rated all my frogs!"})
