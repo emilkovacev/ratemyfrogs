@@ -16,14 +16,12 @@ def index(request):
             rating = 4
         elif '5' in request.POST:
             rating = 5
-        print(rating)
         form = RatingForm(request.POST)
         if form.is_valid():
+            id = form.cleaned_data['id']
             url = form.cleaned_data['url']
-            print('form recieved')
+            Frog.objects.filter(id=id)
+            old_frog
         return HttpResponseRedirect('/')
     allfrogs = Frog.objects.all()
-    if allfrogs:
-        return render(request, 'ratings/index.html', {'frog': allfrogs[0].url})
-    else:
-        return render(request, 'ratings/index.html', {'frog': ''})
+    return render(request, 'ratings/index.html', {'id': allfrogs[0].id, 'url': allfrogs[0].url})

@@ -8,14 +8,14 @@
     <body>
         <h1 id="title">Rate My Frogs</h1>
         <div id="frogimg">
-		<img id="image" src={{ frog }}>
+		<img id="image" src={{ url }}>
         </div>
 
         <div id="ratings">
 		<form action="/" method="post">
 			{% csrf_token %}
 			{{ form_ratefrog }}
-			<input id="submit" type="hidden" name="url" value={{ frog }}>
+			<input id="submit" type="hidden" name="url" value={{ id }}>
 			<input id="submit" type="submit" name="1" value="1"/>
 			<input id="submit" type="submit" name="2" value="2"/>
 			<input id="submit" type="submit" name="3" value="3"/>
