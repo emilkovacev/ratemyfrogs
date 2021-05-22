@@ -28,6 +28,10 @@ h1 {
     box-shadow: 10px 10px;
 }
 
+#message {
+    text-align: center;
+}
+
 #ratings {
     display: flex;
     justify-content: center;
