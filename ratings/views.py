@@ -23,6 +23,10 @@ def index(request):
             url = form.cleaned_data['url']
             request.session[url] = True
             print('form recieved')
+            froggy = Frog.objects.get(pk = url)
+            froggy.n = froggy.n + 1
+            froggy.total = froggy.total + rating
+            froggy.save()
         return HttpResponseRedirect('/')
     
     allfrogs = Frog.objects.all()

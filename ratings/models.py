@@ -2,7 +2,7 @@ from django.db import models
 
 class Frog(models.Model):
     title = models.CharField(max_length=200)
-    url = models.URLField(max_length=1000)
+    url = models.URLField(max_length=1000, primary_key=True)
     total = models.PositiveIntegerField(default=0)
     n = models.PositiveIntegerField(default=0)
 
