@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-import random
+import secrets
 from .models import Frog
 from .forms import RatingForm
 
 def index(request):
+    if not request.session['unrated_frog_urls']:
+        request.session['unrated_frog_urls'] = [frog.url for frog in Frog.objects.all()]
+        request.session['current_frog_url'] = request.session['unrated_frog_urls'][0]
+
     if request.method == "POST":
         rating = 0
         if '1' in request.POST:
@@ -18,26 +22,17 @@ def index(request):
         elif '5' in request.POST:
             rating = 5
         form = RatingForm(request.POST)
-        print(rating)
         if form.is_valid():
             url = form.cleaned_data['url']
             request.session[url] = True
-            print('form recieved')
             froggy = Frog.objects.get(pk = url)
             froggy.n = froggy.n + 1
             froggy.total = froggy.total + rating
             froggy.save()
+
+        request.session['unrated_frog_urls'].remove(url)
+        request.session['current_frog_url'] = secrets.choice(request.session['unrated_frog_urls'])
         return HttpResponseRedirect('/')
     
-    allfrogs = Frog.objects.all()
-    unratedfrogs = []
-    for frog in allfrogs:
-        if str(frog.url) not in request.session:
-            request.session[str(frog.url)] = False
-        if request.session[str(frog.url)] == False:
-            unratedfrogs.append(frog)
-    if unratedfrogs:
-        thisfrog = unratedfrogs[random.randint(0, len(unratedfrogs)-1)]
-        return render(request, 'ratings/index.html', {'url': thisfrog.url, 'frogstring': ''})
-    else:
-        return render(request, 'ratings/index.html', {'url': '', 'frogstring': "You rated all my frogs!"})
+    if request.session['unrated_frog_urls']:
+        return render(request, 'ratings/index.html', {'url': request.session['current_frog_url'], 'frogstring': ''})
