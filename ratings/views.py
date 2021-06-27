@@ -11,6 +11,7 @@ def index(request):
 
     if request.method == "POST":
         rating = 0
+        notfrog = False
         if '1' in request.POST:
             rating = 1
         elif '2' in request.POST:
@@ -21,13 +22,18 @@ def index(request):
             rating = 4
         elif '5' in request.POST:
             rating = 5
+        elif '0' in request.POST:
+            notfrog = True
         form = RatingForm(request.POST)
         if form.is_valid():
             url = form.cleaned_data['url']
             request.session[url] = True
             froggy = Frog.objects.get(pk = url)
-            froggy.n = froggy.n + 1
-            froggy.total = froggy.total + rating
+            if not notfrog:
+                froggy.n = froggy.n + 1
+                froggy.total = froggy.total + rating
+            else:
+                froggy.notfrogs = froggy.notfrogs + 1
             froggy.save()
 
         request.session['unrated_frog_urls'].remove(url)

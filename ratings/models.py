@@ -5,7 +5,7 @@ class Frog(models.Model):
     url = models.URLField(max_length=1000, primary_key=True)
     total = models.PositiveIntegerField(default=0)
     n = models.PositiveIntegerField(default=0)
-
+    notfrogs = models.PositiveIntegerField(default=0)
     @property
     def avg(self):
         if self.n > 0:
