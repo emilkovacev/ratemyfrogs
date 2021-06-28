@@ -6,9 +6,14 @@
     </head>
 
     <body>
+        <div id="fullscreen-image-container" onclick="enlarge();">
+            <span class="close">&times;</span>
+            <img id="fullscreen-image" src={{ url }}>
+        </div>
+
         <h1 id="title">Rate My Frogs</h1>
 	    <p id="message">{{ frogstring }}</p>
-        <div id="frogimg">
+        <div id="frogimg" onclick="enlarge();">
 		<img id="image" src={{ url }}>
         </div>
 
@@ -16,7 +21,7 @@
         <div class="copy-url">
             <input id="frog-url" type="text" readonly="readonly" value={{url}}>
             <input id="copy-button" type="button" 
-                value="copy to clipboard", onclick="myFunction();"
+                value="copy to clipboard", onclick="copyURL();"
                 title="copied">
         </div>
         <div class="ratings">
