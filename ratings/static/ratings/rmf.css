@@ -21,9 +21,18 @@ body {
 }
 
 #dark-mode-button {
+    padding: 6px 10px;
     position: absolute;
     top: 20px;
     right: 20px;
+    color: var(--text-color);
+    background-color: var(--frog-url-background);
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+#dark-mode-button:hover {
+    cursor: pointer;
 }
 
 h1 {
