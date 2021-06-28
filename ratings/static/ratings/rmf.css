@@ -13,7 +13,7 @@ h1 {
 }
 
 #title {
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 #frogimg {
@@ -24,7 +24,7 @@ h1 {
 }
 
 #frogimg img {
-    max-height: 500px;
+    max-height: 350px;
     box-shadow: 10px 10px;
 }
 
@@ -32,16 +32,19 @@ h1 {
     text-align: center;
 }
 
-#ratings {
+#frog-submit {
+    margin-top: 20px;
+}
+
+.ratings {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    margin: 20px;
+    margin-top: 5px;
     text-align: center;
 }
 
-#submit {
+.submit {
     background-color: orange;
     padding: 0;
     border: none;
@@ -55,3 +58,72 @@ h1 {
     cursor: pointer;
 }
 
+.submit:hover {
+    background-color: rgb(230, 150, 15);
+}
+
+.not-a-frog {
+    color: white;
+    background-color: rgb(230, 30, 30);
+    padding: 0;
+    border: none;
+    height: 30px;
+    padding: 5px 30px;
+    text-align: center;
+
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;   
+}
+
+.not-a-frog:hover {
+    background-color: rgb(190, 30, 30)
+}
+
+.copy-url {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#frog-url {
+    background-color: rgb(232,232,232);
+    border-radius: 5px 0 0 5px;
+    width: 200px;
+    height: 26px;
+    padding-left: 8px;
+    border: solid grey;
+    border-width: 1px 0 1px 1px;
+}
+
+#frog-url:hover {
+    cursor: text;
+}
+
+input:focus{
+    outline: none;
+}
+
+#copy-button {
+    height: 30px;
+    border: 1px solid grey;
+    height: 30px;
+    padding: 0 8px;
+    border-radius: 0 5px 5px 0;
+}
+
+#copy-button-no-hover {
+    height: 30px;
+    border: 1px solid grey;
+    height: 30px;
+    padding: 0 8px;
+    border-radius: 0 5px 5px 0;
+}
+
+#copy-button:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+}

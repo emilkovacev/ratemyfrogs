@@ -5,7 +5,7 @@ from .models import Frog
 from .forms import RatingForm
 
 def index(request):
-    if not request.session['unrated_frog_urls']:
+    if 'unrated_frog_urls' not in request.session:
         request.session['unrated_frog_urls'] = [frog.url for frog in Frog.objects.all()]
         request.session['current_frog_url'] = request.session['unrated_frog_urls'][0]
 
@@ -24,16 +24,19 @@ def index(request):
             rating = 5
         elif '0' in request.POST:
             notfrog = True
+        
         form = RatingForm(request.POST)
         if form.is_valid():
             url = form.cleaned_data['url']
             request.session[url] = True
             froggy = Frog.objects.get(pk = url)
             if not notfrog:
-                froggy.n = froggy.n + 1
+                froggy.n += 1
                 froggy.total = froggy.total + rating
             else:
-                froggy.notfrogs = froggy.notfrogs + 1
+                # notfrogs does not increment n or total;
+                # % notfrogs = (n + notfrogs) / (total + notfrogs)
+                froggy.notfrogs += 1
             froggy.save()
 
         request.session['unrated_frog_urls'].remove(url)
