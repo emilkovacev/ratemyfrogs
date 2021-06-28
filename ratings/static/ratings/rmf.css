@@ -1,7 +1,29 @@
 body {
     min-height: 600px;
     min-width: 600px;
-    background-color: rgb(228, 228, 228);
+    background-color: var(--background-color);
+}
+
+:root {
+    --background-color: #F5F5F5;
+    --text-color: #606060;
+    --hover-color: #E8E8E8;
+    --frog-url-background: #E8E8E8;
+    --copy-background: #F5F5F5;
+}
+
+.dark-mode {
+    --background-color: #202020;
+    --text-color: #FFFFFF;
+    --hover-color: #1f212e;
+    --frog-url-background: #282828;
+    --copy-background: #303030;
+}
+
+#dark-mode-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 h1 {
@@ -130,7 +152,8 @@ h1 {
 }
 
 #frog-url {
-    background-color: rgb(232,232,232);
+    color: var(--text-color);
+    background-color: var(--frog-url-background);
     border-radius: 5px 0 0 5px;
     width: 200px;
     height: 26px;
@@ -148,6 +171,8 @@ input:focus{
 }
 
 #copy-button {
+    color: var(--text-color);
+    background-color: var(--copy-background);
     height: 30px;
     border: 1px solid grey;
     height: 30px;
@@ -156,6 +181,8 @@ input:focus{
 }
 
 #copy-button-no-hover {
+    color: var(--text-color);
+    background-color: var(--background-color);
     height: 30px;
     border: 1px solid grey;
     height: 30px;
@@ -165,5 +192,5 @@ input:focus{
 
 #copy-button:hover {
     cursor: pointer;
-    background-color: lightgrey;
+    background-color: var(--hover-color);
 }

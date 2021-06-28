@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head onload="loadMode();">
         {% load static %}
         <link rel="stylesheet" href="{% static 'ratings/rmf.css' %}">
     </head>
 
     <body>
+        <button id="dark-mode-button" onclick="darkMode();">dark-mode</button>
         <div id="fullscreen-image-container" onclick="enlarge();">
             <span class="close">&times;</span>
             <img id="fullscreen-image" src={{ url }}>
@@ -13,8 +14,8 @@
 
         <h1 id="title">Rate My Frogs</h1>
 	    <p id="message">{{ frogstring }}</p>
-        <div id="frogimg" onclick="enlarge();">
-		<img id="image" src={{ url }}>
+        <div id="frogimg">
+		<img id="image" src={{ url }} onclick="enlarge();">
         </div>
 
 		<form id="frog-submit" action="/" method="post">

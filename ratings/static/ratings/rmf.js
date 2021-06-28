@@ -11,6 +11,7 @@ function copyURL() {
     button = document.getElementById("copy-button")
     button.value = "copied!"
     button.style.borderColor = "rgb(25, 190, 60)"
+    copyText.style.borderColor = "rgb(25, 190, 60)"
     button.style.color = "rgb(25, 190, 60)"
     button.id = "copy-button-no-hover"
     button.onclick = ""
@@ -27,3 +28,33 @@ function enlarge() {
     }
 }
 
+function darkMode() {
+    let body = document.body;
+    let button = document.getElementById("dark-mode-button")
+    let localStorage = window.localStorage
+    let mode = localStorage.getItem("mode")
+    if (mode === "") {
+        localStorage.setItem("mode", "dark")
+    } else if (mode == "dark") {
+        localStorage.setItem("mode", "")
+    }
+    body.classList.toggle("dark-mode")
+}
+
+function loadMode() {
+    let body = document.body;
+    let button = document.getElementById("dark-mode-button")
+    let localStorage = window.localStorage
+    let mode = localStorage.getItem("mode")
+    if (mode == "dark") {
+        document.body.classList.toggle("dark-mode")
+    }
+}
+
+let localStorage = window.localStorage
+let mode = localStorage.getItem("mode")
+if (mode == null) {
+    localStorage.setItem("mode", "")
+} else if (mode === "dark") {
+    document.body.classList.toggle("dark-mode")
+}
