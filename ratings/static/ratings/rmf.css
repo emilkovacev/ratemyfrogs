@@ -1,7 +1,12 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     min-height: 600px;
     min-width: 600px;
     background-color: var(--background-color);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 :root {
@@ -10,14 +15,16 @@ body {
     --hover-color: #E8E8E8;
     --frog-url-background: #E8E8E8;
     --copy-background: #F5F5F5;
+    --shadow-color: black;
 }
 
 .dark-mode {
     --background-color: #202020;
-    --text-color: #FFFFFF;
+    --text-color: #F5F5F5;
     --hover-color: #1f212e;
     --frog-url-background: #282828;
     --copy-background: #303030;
+    --shadow-color: #404040;
 }
 
 #dark-mode-button {
@@ -36,14 +43,14 @@ body {
 }
 
 h1 {
-    color: rgb(134, 190, 2);
-    font-size: 50px;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
     margin-block-start: 0;
+    color: var(--text-color)
 }
 
 #title {
+    font-size: 50px;
+    color: rgb(134, 190, 2);
     margin-top: 30px;
 }
 
@@ -56,7 +63,7 @@ h1 {
 
 #frogimg img {
     max-height: 350px;
-    box-shadow: 10px 10px;
+    box-shadow: 10px 10px 0 var(--shadow-color);
 }
 
 #frogimg img:hover {cursor: pointer;}
@@ -203,3 +210,48 @@ input:focus{
     cursor: pointer;
     background-color: var(--hover-color);
 }
+
+#ranking-button {
+    margin: 20px;
+    padding: 5px 50px;
+}
+
+#ranking-button:hover {cursor: pointer;}
+
+#ranking-container {
+    display: none;
+}
+
+#ranking-title {
+    display: none;
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+.rankings {
+    max-width: 1000px;
+    margin: 0 0 40px 0;
+    text-align: center;
+    color: var(--text-color);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.ranked-frog {
+    padding: 20px;
+}
+
+.rankings img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.rankings p {
+    color: var(--text-color);
+    margin: 6px;
+}
+
+.rankings img:hover {opacity: 70%;}

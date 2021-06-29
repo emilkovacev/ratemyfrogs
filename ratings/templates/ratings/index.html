@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <head onload="loadMode();">
+    <head>
         {% load static %}
         <link rel="stylesheet" href="{% static 'ratings/rmf.css' %}">
     </head>
 
-    <body>
-        <button id="dark-mode-button" onclick="darkMode();">dark-mode</button>
+    <body onload="loadMode();">
+        <button id="dark-mode-button" onclick="darkMode();"></button>
         <div id="fullscreen-image-container" onclick="enlarge();">
             <span class="close">&times;</span>
             <img id="fullscreen-image" src={{ url }}>
@@ -20,7 +20,7 @@
 
 		<form id="frog-submit" action="/" method="post">
         <div class="copy-url">
-            <input id="frog-url" type="text" readonly="readonly" value={{url}}>
+            <input id="frog-url" type="text" readonly="readonly" value={{ url }}>
             <input id="copy-button" type="button" 
                 value="copy to clipboard", onclick="copyURL();"
                 title="copied">
@@ -40,6 +40,26 @@
             <input class="not-a-frog" type="submit" name="0" value="not a frog">
         </div>
 		</form>
+
+        <div class="ratings">
+            <button id="ranking-button" onclick="showRankings();">show rankings</button>
+        </div>
+
+        <h1 id="ranking-title">Top 10 Frogs</h1>
+        
+        <div id="ranking-container" class="ratings">
+        <div class="rankings">
+            {% for frog in top_frogs %}
+            <div class="ranked-frog">
+                <a href={{ frog.url }} target="_blank"><img src={{ frog.url }}></a></br>
+                <caption>{{ frog.title }}</caption>
+                <p>{{ frog.avg }}</p>
+            </div>
+            {% endfor %}
+
+        </div>
+        </div>
+
         <script src="{% static 'ratings/rmf.js' %}"></script>
     </body>
 </html>

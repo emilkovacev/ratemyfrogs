@@ -35,10 +35,30 @@ function darkMode() {
     let mode = localStorage.getItem("mode")
     if (mode === "") {
         localStorage.setItem("mode", "dark")
+        button.innerHTML = "light mode"
     } else if (mode == "dark") {
         localStorage.setItem("mode", "")
+        button.innerHTML = "dark mode"
     }
     body.classList.toggle("dark-mode")
+}
+
+function showRankings() {
+    let button = document.getElementById("ranking-button")
+    let title = document.getElementById("ranking-title")
+    let rankings = document.getElementById("ranking-container")
+
+    if (title.style.display === "" && rankings.style.display === "") {
+        title.style.display = "block"
+        rankings.style.display = "grid"
+        button.innerHTML = "hide rankings"
+        button.scrollIntoView({behavior: 'smooth'});
+    }
+    else {
+        title.style.display = ""
+        rankings.style.display = ""
+        button.innerHTML = "show rankings"
+    }
 }
 
 function loadMode() {
@@ -48,6 +68,9 @@ function loadMode() {
     let mode = localStorage.getItem("mode")
     if (mode == "dark") {
         document.body.classList.toggle("dark-mode")
+        button.innerHTML = "light mode"
+    } else {
+        button.innerHTML = "dark mode"
     }
 }
 
