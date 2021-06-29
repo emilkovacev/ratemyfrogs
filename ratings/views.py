@@ -8,7 +8,7 @@ def index(request):
     if 'unrated_frog_urls' not in request.session:
         request.session['unrated_frog_urls'] = [frog.url for frog in Frog.objects.all()]
         request.session['current_frog_url'] = request.session['unrated_frog_urls'][0]
-
+    
     if request.method == "POST":
         rating = 0
         notfrog = False
@@ -47,7 +47,17 @@ def index(request):
         return HttpResponseRedirect('/')
     top_frogs = sorted(list(Frog.objects.all()), key=lambda x: x.avg, reverse=True)[:10]    
     if request.session['unrated_frog_urls']:
-        return render(request, 'ratings/index.html', {'url': request.session['current_frog_url'], 'top_frogs': top_frogs})
+        return render(request, 'ratings/index.html', 
+            {
+                'url': request.session['current_frog_url'], 
+                'top_frogs': top_frogs, 
+                'appearance': request.COOKIES.get('appearance')
+            })
     else:
-        return render(request, 'ratings/index.html', {'url': request.session['current_frog_url'], 'top_frogs': top_frogs})
+        return render(request, 'ratings/index.html', 
+            {
+                'url': request.session['current_frog_url'], 
+                'top_frogs': top_frogs, 
+                'appearance': request.COOKIES.get('appearance')
+            })
 

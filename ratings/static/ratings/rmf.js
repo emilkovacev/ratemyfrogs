@@ -28,21 +28,6 @@ function enlarge() {
     }
 }
 
-function darkMode() {
-    let body = document.body;
-    let button = document.getElementById("dark-mode-button")
-    let localStorage = window.localStorage
-    let mode = localStorage.getItem("mode")
-    if (mode === "") {
-        localStorage.setItem("mode", "dark")
-        button.innerHTML = "light mode"
-    } else if (mode == "dark") {
-        localStorage.setItem("mode", "")
-        button.innerHTML = "dark mode"
-    }
-    body.classList.toggle("dark-mode")
-}
-
 function showRankings() {
     let button = document.getElementById("ranking-button")
     let title = document.getElementById("ranking-title")
@@ -61,23 +46,17 @@ function showRankings() {
     }
 }
 
-function loadMode() {
-    let body = document.body;
-    let button = document.getElementById("dark-mode-button")
-    let localStorage = window.localStorage
-    let mode = localStorage.getItem("mode")
-    if (mode == "dark") {
-        document.body.classList.toggle("dark-mode")
+let button = document.getElementById("dark-mode-button")
+button.addEventListener("click", function() {
+    document.body.classList.toggle("dark")
+    let appearance = ""
+    if (document.body.classList.contains("dark")) {
+        appearance = "dark"
         button.innerHTML = "light mode"
     } else {
         button.innerHTML = "dark mode"
     }
-}
 
-let localStorage = window.localStorage
-let mode = localStorage.getItem("mode")
-if (mode == null) {
-    localStorage.setItem("mode", "")
-} else if (mode === "dark") {
-    document.body.classList.toggle("dark-mode")
-}
+    document.cookie = `appearance=${appearance}; SameSite=Strict;`
+})
+

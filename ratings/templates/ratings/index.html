@@ -5,8 +5,15 @@
         <link rel="stylesheet" href="{% static 'ratings/rmf.css' %}">
     </head>
 
-    <body onload="loadMode();">
-        <button id="dark-mode-button" onclick="darkMode();"></button>
+    <body class="{{ appearance }}">
+        <button id="dark-mode-button">
+            {% if appearance == "" %}
+                dark mode
+            {% elif appearance == "dark" %}
+                light mode
+            {% endif %}
+        </button>
+
         <div id="fullscreen-image-container" onclick="enlarge();">
             <span class="close">&times;</span>
             <img id="fullscreen-image" src={{ url }}>
