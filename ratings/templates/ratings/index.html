@@ -13,11 +13,18 @@
         </div>
 
         <h1 id="title">Rate My Frogs</h1>
-	    <p id="message">{{ frogstring }}</p>
+        
+        {% if url == "" %}
+	        <p id="message">Thank you for completing your daily frog-rating quota!</p>
+        {% endif %}
+
         <div id="frogimg">
-		<img id="image" src={{ url }} onclick="enlarge();">
+        {% if url != "" %}
+		    <img id="image" src={{ url }} onclick="enlarge();">
+        {% endif %}
         </div>
 
+        {% if url != "" %}
 		<form id="frog-submit" action="/" method="post">
         <div class="copy-url">
             <input id="frog-url" type="text" readonly="readonly" value={{ url }}>
@@ -40,6 +47,7 @@
             <input class="not-a-frog" type="submit" name="0" value="not a frog">
         </div>
 		</form>
+        {% endif %}
 
         <div class="ratings">
             <button id="ranking-button" onclick="showRankings();">show rankings</button>

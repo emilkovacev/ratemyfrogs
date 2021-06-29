@@ -45,9 +45,9 @@ def index(request):
         else:
             request.session['current_frog_url'] = ''
         return HttpResponseRedirect('/')
-    
+    top_frogs = sorted(list(Frog.objects.all()), key=lambda x: x.avg, reverse=True)[:10]    
     if request.session['unrated_frog_urls']:
-        return render(request, 'ratings/index.html', {'url': request.session['current_frog_url'], 'frogstring': ''})
+        return render(request, 'ratings/index.html', {'url': request.session['current_frog_url'], 'top_frogs': top_frogs})
     else:
-        return render(request, 'ratings/index.html', {'url': request.session['current_frog_url'], 'frogstring': ''})
+        return render(request, 'ratings/index.html', {'url': request.session['current_frog_url'], 'top_frogs': top_frogs})
 

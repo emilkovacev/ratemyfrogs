@@ -107,6 +107,7 @@ h1 {
 }
 
 #message {
+    color: var(--text-color);
     text-align: center;
 }
 
