@@ -40,8 +40,14 @@ def index(request):
             froggy.save()
 
         request.session['unrated_frog_urls'].remove(url)
-        request.session['current_frog_url'] = secrets.choice(request.session['unrated_frog_urls'])
+        if request.session['unrated_frog_urls']: 
+            request.session['current_frog_url'] = secrets.choice(request.session['unrated_frog_urls'])
+        else:
+            request.session['current_frog_url'] = ''
         return HttpResponseRedirect('/')
     
     if request.session['unrated_frog_urls']:
         return render(request, 'ratings/index.html', {'url': request.session['current_frog_url'], 'frogstring': ''})
+    else:
+        return render(request, 'ratings/index.html', {'url': request.session['current_frog_url'], 'frogstring': ''})
+
