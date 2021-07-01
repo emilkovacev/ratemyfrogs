@@ -2,7 +2,7 @@ from django.db import models
 
 class Frog(models.Model):
     title = models.CharField(max_length=200)
-    url = models.URLField(max_length=1000, primary_key=True)
+    url = models.URLField(max_length=1000)
     total = models.PositiveIntegerField(default=0)
     n = models.PositiveIntegerField(default=0)
     notfrogs = models.PositiveIntegerField(default=0)
@@ -14,11 +14,4 @@ class Frog(models.Model):
 
     def __str__(self):
         return str(self.title)
-
-
-class User(models.Model):
-    user_id = models.CharField(max_length=1000)
-
-    def __str__(self):
-        return str(self.userid)
 
