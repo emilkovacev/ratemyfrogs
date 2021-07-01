@@ -29,7 +29,7 @@ def index(request):
         if form.is_valid():
             url = form.cleaned_data['url']
             request.session[url] = True
-            froggy = Frog.objects.get(pk = url)
+            froggy = Frog.objects.get(url = url)
             if not notfrog:
                 froggy.n += 1
                 froggy.total = froggy.total + rating
