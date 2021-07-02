@@ -85,6 +85,9 @@ DATABASES = {
         'PORT': '3306',
         'USER': 'djangouser',
         'PASSWORD': os.getenv('DB_PASSWORD'),
+        'OPTIONS': { 
+            'charset': 'utf8mb4',
+        }
     }
 }
 
