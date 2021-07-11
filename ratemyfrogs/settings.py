@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -79,15 +79,11 @@ WSGI_APPLICATION = 'ratemyfrogs.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ratemyfrogs',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'USER': 'djangouser',
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'OPTIONS': { 
-            'charset': 'utf8mb4',
-        }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
