@@ -14,3 +14,5 @@ RUN pip install -r requirements.txt
 
 # Copy project
 COPY . /code/
+
+CMD python /code/manage.py populate 1 10
