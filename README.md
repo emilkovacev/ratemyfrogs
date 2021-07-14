@@ -1,5 +1,7 @@
 # ratemyfrogs
 
+RateMyFrogs is the premier location for rating frogs of all shapes and sizes. All frogs are from Creative Commons and are on the Public Domain taken from the [Creative Commons Catalog API](https://api.creativecommons.engineering/v1/). Currently the website is live at [ratemyfrogs.com](https://www.ratemyfrogs.com)! Feel free to send a pull request, I'll be keeping an eye on this repo for a while for any new changes, bug fixes, and improvements to merge into development. Thanks for taking part in this cool project!
+
 ## main - local
 ### Requirements:
 - python3.9
@@ -20,3 +22,5 @@
 6. populate database `python manage.py batch-populate 10`
 7. run website `python manage.py runserver`
 Access the [website](http://localhost:8000/) or [admin panel](http://localhost:8000/admin/) and login
+
+*Disclaimer: ratemyfrogs **does not** collect or store any personally identifiable information from users. All images present on the website are labeled as on the public domain by Creative Commons.*
