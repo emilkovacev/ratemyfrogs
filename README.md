@@ -4,12 +4,13 @@ RateMyFrogs is the premier location for rating frogs of all shapes and sizes. Al
 
 ## main - local
 ### Requirements:
-- python3.9
+- python=3.9
+- pip>=21.0
 - django>=3.0,<4.0
 - python-dotenv
 - requests
 
-⚠️ Recommended: Use virtualenv to set up the environment so that requirements do not conflict with any existing installations
+⚠️ Recommended: Use a [virtualenv](https://docs.python.org/3/tutorial/venv.html) to set up the environment so that requirements do not conflict with any existing installations
 
 ### Steps to get it running:
 1. clone the repository `git clone git@github.com:emilkovacev/ratemyfrogs.git`
