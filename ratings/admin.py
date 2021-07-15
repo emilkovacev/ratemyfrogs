@@ -1,4 +1,7 @@
 from django.contrib import admin
 from .models import Frog
 
-admin.site.register(Frog)
+class FrogAdmin(admin.ModelAdmin):
+    search_fields = ['title', 'n']
+
+admin.site.register(Frog, FrogAdmin)
