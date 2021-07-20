@@ -49,7 +49,7 @@ def index(request):
         if frog.avg == 0:
             return frog.avg
         else:
-            ((frog.total + (10 * 3)) / (frog.n + 10))
+            return ((frog.total + (10 * 3)) / (frog.n + 10))
     top_frogs = sorted(list(Frog.objects.all()), key=bayesianAverage, reverse=True)[:10]    
     if request.session['unrated_frog_urls']:
         return render(request, 'ratings/index.html', 
