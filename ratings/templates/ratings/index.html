@@ -7,10 +7,10 @@
 
     <body class="{{ appearance }}">
         <button id="dark-mode-button">
-            {% if appearance == "" %}
-                dark mode
-            {% elif appearance == "dark" %}
+            {% if appearance == "dark" %}
                 light mode
+            {% else %}
+                dark mode
             {% endif %}
         </button>
 

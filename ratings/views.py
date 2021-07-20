@@ -29,7 +29,7 @@ def index(request):
         if form.is_valid():
             url = form.cleaned_data['url']
             request.session[url] = True
-            froggy = Frog.objects.get(pk = url)
+            froggy = Frog.objects.get(url = url)
             if not notfrog:
                 froggy.n += 1
                 froggy.total = froggy.total + rating
@@ -45,12 +45,14 @@ def index(request):
         else:
             request.session['current_frog_url'] = ''
         return HttpResponseRedirect('/')
+
     def bayesianAverage(frog):
         if frog.avg == 0:
             return frog.avg
         else:
             return ((frog.total + (10 * 3)) / (frog.n + 10))
     top_frogs = sorted(list(Frog.objects.all()), key=bayesianAverage, reverse=True)[:10]    
+
     if request.session['unrated_frog_urls']:
         return render(request, 'ratings/index.html', 
             {
