@@ -45,7 +45,12 @@ def index(request):
         else:
             request.session['current_frog_url'] = ''
         return HttpResponseRedirect('/')
-    top_frogs = sorted(list(Frog.objects.all()), key=lambda x: x.avg, reverse=True)[:10]    
+    def bayesianAverage(frog):
+        if frog.avg == 0:
+            return frog.avg
+        else:
+            ((frog.total + (10 * 3)) / (frog.n + 10))
+    top_frogs = sorted(list(Frog.objects.all()), key=bayesianAverage, reverse=True)[:10]    
     if request.session['unrated_frog_urls']:
         return render(request, 'ratings/index.html', 
             {
