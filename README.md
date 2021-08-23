@@ -1,6 +1,6 @@
 # ratemyfrogs
 
-RateMyFrogs is the premier location for rating frogs of all shapes and sizes. All frogs are from Creative Commons and are on the Public Domain taken from the [Creative Commons Catalog API](https://api.creativecommons.engineering/v1/). Currently the website is live at [ratemyfrogs.com](https://www.ratemyfrogs.com)! Feel free to send a pull request, I'll be keeping an eye on this repo for a while for any new changes, bug fixes, and improvements to merge into development. Thanks for taking part in this cool project!
+RateMyFrogs is the premier location for rating frogs of all shapes and sizes. All frogs are from Creative Commons and are on the Public Domain taken from the [Creative Commons Catalog API](https://api.creativecommons.engineering/v1/). Currently the website is down while I look for a good way to expand the server (it would otherwise be up on [ratemyfrogs.com](https://www.ratemyfrogs.com))! Feel free to send a pull request, I'll be keeping an eye on this repo for a while for any new changes, bug fixes, and improvements to merge into development. Thanks for taking part in this cool project!
 
 ## main - local
 ### Requirements:
