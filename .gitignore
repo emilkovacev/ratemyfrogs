@@ -1,6 +1,4 @@
-.env
-/env
-/data
-/__pycache__/
-.pyc
-db.sqlite3
+**/.*
+!**/.gitignore
+**/frogs
+/venv

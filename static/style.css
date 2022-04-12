@@ -1,0 +1,105 @@
+body {
+    font-family: Helvetica;
+    background-color: lightgreen;
+    color: green;
+}
+
+.bi:hover {
+    cursor: pointer;
+    opacity: 60%;
+}
+
+.dark-mode {
+    color: lightgreen;
+    background-color: #18511d;
+}
+
+.content {
+    height: calc(100% - 18.5px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.content img {
+    display: block;
+    height: auto;
+    max-height: 300px;
+    width: auto;
+}
+
+.content img:hover {
+    cursor: pointer;
+}
+
+.content img.stretch {
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    object-fit: contain;
+    background-color: black;
+}
+
+.content .frog-text.stretch {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    font-size: 1.5rem;
+    bottom: 0;
+    background-color: white;
+    color: black;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.content .frog-text.stretch p {
+    margin: 10px;
+}
+
+.content .submit {
+    font-size: 1rem;
+
+    color: black;
+    background-color: orange;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 5px;
+}
+
+.content .submit:hover {
+    cursor: pointer;
+    background-color: darkorange;
+}
+
+.content .not-a-frog {
+    width: calc(100% - 10px);
+    color: white;
+    background-color: red;
+}
+
+.content .not-a-frog:hover {
+    background-color: darkred;
+}
+
+.content .copy {
+    color: black;
+    background-color: lightgrey;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.content .copy #copy-url {
+    margin: 0 0 0 10px;
+    overflow: hidden;
+    max-width: 200px;
+    white-space: nowrap;
+}

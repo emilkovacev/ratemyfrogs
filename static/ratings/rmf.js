@@ -1,4 +1,4 @@
-function copyURL() {
+const copyURL = () => {
     /* Get the text field */
     let copyText = document.getElementById("frog-url");
 
@@ -17,7 +17,7 @@ function copyURL() {
     button.onclick = ""
 }
 
-function enlarge() {
+const enlarge = () => {
     
     let container = document.getElementById("fullscreen-image-container")
     if (container.style.display == "") {
@@ -28,26 +28,8 @@ function enlarge() {
     }
 }
 
-function showRankings() {
-    let button = document.getElementById("ranking-button")
-    let title = document.getElementById("ranking-title")
-    let rankings = document.getElementById("ranking-container")
-
-    if (title.style.display === "" && rankings.style.display === "") {
-        title.style.display = "block"
-        rankings.style.display = "grid"
-        button.innerHTML = "hide rankings"
-        button.scrollIntoView({behavior: 'smooth'});
-    }
-    else {
-        title.style.display = ""
-        rankings.style.display = ""
-        button.innerHTML = "show rankings"
-    }
-}
-
-let button = document.getElementById("dark-mode-button")
-button.addEventListener("click", function() {
+const button = document.getElementById("dark-mode-button")
+button.addEventListener("click", () => {
     document.body.classList.toggle("dark")
     let appearance = ""
     if (document.body.classList.contains("dark")) {

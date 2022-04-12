@@ -1,5 +1,0 @@
-django>=3.0,<4.0
-python-dotenv
-requests
-gunicorn
-psycopg2-binary>=2.8

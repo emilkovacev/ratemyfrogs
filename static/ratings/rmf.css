@@ -256,3 +256,13 @@ input:focus{
 }
 
 .rankings img:hover {opacity: 70%;}
+
+.footer {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
+
+.footer img {
+    max-width: 40px;
+}
