@@ -5,7 +5,8 @@
         <link rel="stylesheet" href="../static/style.css">
     </head>
     <body>
-        <i id="change-mode" class="bi bi-sun-fill"></i>
+        <i id="change-mode" class="bi bi-moon-fill"></i>
+        <a class="github" href="https://github.com/emilkovacev/ratemyfrogs"><i class="bi bi-github"></i></a>
 
         <div class="content">
             <h1 class="title">Rate My Frogs</h1>
@@ -28,10 +29,16 @@
                 <p id="copy-url">{{ frog.url }}</p>
             </div>
 
+            {% if most_popular is not none %}
             <div class="popular">
-                <img class="frog-img" src="{{ most_popular }}">
-                <h1 class="title">#1</h1>
+                {% for rank in range(3) %}
+                <div>
+                    <img class="frog-img" src="{{ most_popular[rank] }}">
+                    <h1 class="title">#{{ rank + 1 }}</h1>
+                </div>
+                {% endfor %}
             </div>
+            {% endif %}
         </div>
 
         <script src="../static/dark-mode.js"></script>

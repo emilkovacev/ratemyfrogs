@@ -37,9 +37,9 @@ async def homepage(request):
 async def rate(request):
     print('request made')
     form = await request.form()
-    print(form)
     url, rating = form['url'], form['rating']
     if rating != 'not a frog':
+        rating = int(rating)
         increment_frog(url, rating)
     response = RedirectResponse(url='/')
     new_frog = get_random_frog()

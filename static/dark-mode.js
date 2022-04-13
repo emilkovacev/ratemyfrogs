@@ -16,8 +16,10 @@ const get_mode = () => {
     console.log('setting mode...');
     const button = document.getElementById("change-mode");
     const mode = getCookie("mode");
-    console.log(mode);
-    toggle(button);
+    if (mode == "dark-mode") {
+        console.log(mode);
+        toggle(button);
+    }
 }
 
 const add_copy_style = (button) => {

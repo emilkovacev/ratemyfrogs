@@ -4,9 +4,17 @@ body {
     color: green;
 }
 
+a {
+    color: inherit;
+}
+
 .bi:hover {
     cursor: pointer;
     opacity: 60%;
+}
+
+.github:link {
+    color: dark-green;
 }
 
 .dark-mode {
@@ -37,12 +45,12 @@ body {
     position: fixed !important;
     width: 100% !important;
     height: 100% !important;
-    max-height: none;
+    max-height: none !important;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    object-fit: contain;
+    object-fit: contain !important;
     background-color: black;
 }
 
@@ -106,12 +114,27 @@ body {
 
 .content .popular {
     margin-top: 50px;
+    display: flex;
 }
 
-.content .popular img {
+.content .popular div {
+    margin-bottom: 20px;
+}
+
+.content .popular .frog-img {
     width: 200px;
     height: 200px;
     object-fit: cover;
+    object-position: top;
+    margin: 10px;
+}
+
+.content .popular .stretch {
+    width: inherit;
+    height: inherit;
+    object-fit: contain;
+    object-position: top;
+    margin: 0;
 }
 
 .content .popular h1 {
