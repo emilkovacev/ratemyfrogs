@@ -103,3 +103,20 @@ body {
     max-width: 200px;
     white-space: nowrap;
 }
+
+.content .popular {
+    margin-top: 50px;
+}
+
+.content .popular img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.content .popular h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}

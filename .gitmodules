@@ -1,0 +1,3 @@
+[submodule "Bulk-Bing-Image-downloader"]
+	path = Bulk-Bing-Image-downloader
+	url = git@github.com:ostrolucky/Bulk-Bing-Image-downloader.git
