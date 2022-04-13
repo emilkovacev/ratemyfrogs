@@ -22,12 +22,10 @@ async def homepage(request):
         'request': request,
         'frog': {
             'name': 'frog', 
-            'url': f'http://127.0.0.1:8000/frogs/{frog_img}', 
+            'url': f'https://ratemyfrogs.com/frogs/{frog_img}', 
         },
         'most_popular': get_most_popular()
     })
-
-    print(f'/frogs/{frog_img}')
 
     response.set_cookie('current_frog', frog_img)
 
@@ -35,7 +33,6 @@ async def homepage(request):
   
 
 async def rate(request):
-    print('request made')
     form = await request.form()
     url, rating = form['url'], form['rating']
     if rating != 'not a frog':

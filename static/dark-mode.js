@@ -4,20 +4,16 @@ const toggle = (button) => {
     document.body.classList.toggle("dark-mode");
 
     if (document.body.classList.contains("dark-mode")) {
-        console.log("set dark mode");
         setCookie("mode", "dark-mode", 20);
     } else {
         setCookie("mode", "light-mode", 20);
-        console.log("set light mode");
     }
 }
 
 const get_mode = () => {
-    console.log('setting mode...');
     const button = document.getElementById("change-mode");
     const mode = getCookie("mode");
     if (mode == "dark-mode") {
-        console.log(mode);
         toggle(button);
     }
 }
