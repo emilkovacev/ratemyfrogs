@@ -108,6 +108,7 @@ a {
 .content .copy #copy-url {
     margin: 0 0 0 10px;
     overflow: hidden;
+    text-overflow: ellipsis;
     max-width: 200px;
     white-space: nowrap;
 }
