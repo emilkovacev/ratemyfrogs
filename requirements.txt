@@ -2,3 +2,4 @@ starlette
 uvicorn
 jinja2
 pymongo
+python-multipart
