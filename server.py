@@ -2,15 +2,23 @@ from starlette.applications import Starlette
 from starlette.routing import Route, Mount
 from starlette.templating import Jinja2Templates
 from starlette.staticfiles import StaticFiles
-from starlette.responses import RedirectResponse
+from starlette.responses import RedirectResponse, PlainTextResponse
 
 from db import *
 import os
 import random
+import csv
+import io
 
 
 templates = Jinja2Templates(directory='templates')
+development = True
 
+def get_host():
+    if development:
+        return 'http://0.0.0.0:5003'
+    else:
+        return 'https://ratemyfrogs.com'
 
 async def homepage(request):    
     if 'current_frog' in request.cookies:
@@ -21,8 +29,8 @@ async def homepage(request):
     response = templates.TemplateResponse('index.html', {
         'request': request,
         'frog': {
-            'name': 'frog', 
-            'url': f'https://ratemyfrogs.com/frogs/{frog_img}', 
+            'name': 'frog',
+            'url': f'{get_host()}/frogs/{frog_img}', 
         },
         'most_popular': get_most_popular()
     })
@@ -61,9 +69,26 @@ def get_random_frog(rated=None):
         return 'error 500, server has not been properly initialized! (run ./run_server)'
 
 
+
+async def csv_data(request):
+    data = get_frogs()
+    headers = ['_id', 'url', 'n', 'total', 'avg']
+    string = io.StringIO()
+    writer = csv.DictWriter(string, headers)
+
+    writer.writeheader()
+    for elem in data:
+        writer.writerow(elem)
+
+    response = PlainTextResponse(string.getvalue())
+    return response
+
+
+
 app = Starlette(debug=True, routes=[
     Route('/', homepage, methods=['GET', 'POST']),
     Route('/rate', rate, methods=['POST']),
     Mount('/static', StaticFiles(directory='static'), name='static'),
-    Mount('/frogs', StaticFiles(directory='frogs'), name='frogs')
+    Mount('/frogs', StaticFiles(directory='frogs'), name='frogs'),
+    Route('/data', csv_data)
 ])

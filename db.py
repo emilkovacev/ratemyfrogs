@@ -40,3 +40,6 @@ def get_most_popular():
         return [x['url'] for x in popular]
     else:
         return None
+
+def get_frogs():
+    return list(collection.find())

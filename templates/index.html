@@ -30,6 +30,7 @@
             <div class="copy">
                 <i id="copy-button" class="bi bi-clipboard"></i>
                 <p id="copy-url">{{ frog.url }}</p>
+                <a href="/data">CSV Data</a>
             </div>
 
             {% if most_popular is not none %}
@@ -45,5 +46,6 @@
         </div>
 
         <script src="../static/dark-mode.js"></script>
+        <script src="../static/download-csv.js"></script>
     </body>
 </html>
