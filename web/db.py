@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 
-client = MongoClient('localhost', connect=False)
+client = MongoClient('mongo')
 db = client['frogs']
 collection = db['ratings']
 

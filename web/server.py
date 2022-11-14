@@ -12,7 +12,7 @@ import io
 
 
 templates = Jinja2Templates(directory='templates')
-development = True
+development = False
 
 def get_host():
     if development:
